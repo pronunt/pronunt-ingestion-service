@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: pronunt-ingestion-service-config
-  namespace: prism
+  namespace: pronunt-app-ns
 data:
   APP_NAME: pronunt-ingestion-service
   APP_ENV: production
@@ -12,4 +12,5 @@ data:
   GITHUB_API_URL: https://api.github.com
   AUTH_SERVICE_URL: http://pronunt-auth-service:8000
   RABBITMQ_URL: amqp://guest:guest@rabbitmq:5672/
+
 
