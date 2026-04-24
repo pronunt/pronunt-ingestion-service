@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pronunt-ingestion-service
+  namespace: prism
+spec:
+  selector:
+    app: pronunt-ingestion-service
+  ports:
+    - name: http
+      port: 8000
+      targetPort: 8000
+  type: ClusterIP
+

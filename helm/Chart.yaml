@@ -1,0 +1,7 @@
+apiVersion: v2
+name: pronunt-ingestion-service
+description: Helm chart for pronunt-ingestion-service
+type: application
+version: 0.1.0
+appVersion: "0.1.0"
+
