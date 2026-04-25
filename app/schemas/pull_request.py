@@ -42,3 +42,24 @@ class IngestionDependencyResponse(BaseModel):
     exchange: str
     routing_key: str
     queue: str
+
+
+class ConnectedRepositoryResponse(BaseModel):
+    id: int
+    full_name: str
+    owner: str
+    name: str
+    private: bool
+    default_branch: str
+    html_url: str
+
+
+class ConnectedRepositoryListResponse(BaseModel):
+    items: list[ConnectedRepositoryResponse]
+    total: int
+
+
+class PullRequestSyncResult(BaseModel):
+    status: str
+    repository_full_name: str
+    queued_pull_requests: int

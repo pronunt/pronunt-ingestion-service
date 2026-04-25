@@ -20,6 +20,9 @@ class Settings(BaseSettings):
     rabbitmq_exchange: str = "pronunt.events"
     rabbitmq_pr_routing_key: str = "pull_request.normalized"
     rabbitmq_pr_queue: str = "pronunt.pull_requests.normalized"
+    github_api_url: str = "https://api.github.com"
+    auth_service_url: str = "http://pronunt-auth-service:8000"
+    internal_service_token: str | None = None
 
     auth_enabled: bool = False
     allow_unsafe_dev_auth: bool = True
@@ -41,6 +44,12 @@ class Settings(BaseSettings):
             errors.append("RABBITMQ_PR_ROUTING_KEY is required.")
         if not self.rabbitmq_pr_queue:
             errors.append("RABBITMQ_PR_QUEUE is required.")
+        if not self.github_api_url:
+            errors.append("GITHUB_API_URL is required.")
+        if not self.auth_service_url:
+            errors.append("AUTH_SERVICE_URL is required.")
+        if not self.internal_service_token:
+            errors.append("INTERNAL_SERVICE_TOKEN is required.")
 
         if self.auth_enabled:
             if not self.keycloak_issuer:
